@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "weather-spark-digest"
+version = "0.1.0"
+description = "CLI tools for fetching and analyzing weather data from weather spark"
+authors = ["Weather Spark Team <team@weatherspark.com>"]
+readme = "README.md"
+packages = [{include = "weather_spark_digest"}]
+
+[tool.poetry.dependencies]
+python = "^3.8.1"
+typer = "^0.9.0"
+requests = "^2.31.0"
+pillow = "^10.0.0"
+cairosvg = "^2.7.0"
+pandas = "^2.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4.0"
+pytest-cov = "^4.1.0"
+black = "^23.0.0"
+isort = "^5.12.0"
+flake8 = "^6.0.0"
+
+[tool.poetry.scripts]
+weather-fetch = "weather_spark_digest.cli.fetch:app"
+weather-compare = "weather_spark_digest.cli.compare:app"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
